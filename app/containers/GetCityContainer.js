@@ -1,6 +1,5 @@
-var React = require('react');
-var PropTypes = React.PropTypes;
-var GetCity = require('../components/GetCity');
+import React, { PropTypes } from 'react';
+import GetCity from '../components/GetCity';
 
 var GetCityContainer = React.createClass({
   contextTypes: {
@@ -39,4 +38,4 @@ var GetCityContainer = React.createClass({
   }
 });
 
-module.exports = GetCityContainer;
+export default GetCityContainer;

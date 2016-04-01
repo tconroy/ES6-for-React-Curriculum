@@ -1,6 +1,6 @@
-var React = require('react');
-var Forecast = require('../components/Forecast');
-var getForcast = require('../helpers/api').getForcast;
+import React from 'react';
+import Forecast from '../components/Forecast';
+import { getForcast } from '../helpers/api';
 
 var ForecastContainer = React.createClass({
   contextTypes: {
@@ -46,4 +46,4 @@ var ForecastContainer = React.createClass({
   }
 });
 
-module.exports = ForecastContainer;
+export default ForecastContainer;

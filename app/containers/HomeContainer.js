@@ -1,5 +1,5 @@
-var React = require('react');
-var Home = require('../components/Home');
+import React from 'react';
+import Home from '../components/Home';
 
 var HomeContainer = React.createClass({
   render: function () {
@@ -7,4 +7,4 @@ var HomeContainer = React.createClass({
   }
 });
 
-module.exports = HomeContainer;
+export default HomeContainer;
