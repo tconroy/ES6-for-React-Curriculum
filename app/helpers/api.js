@@ -3,10 +3,9 @@ const _baseURL = 'http://api.openweathermap.org/data/2.5/';
 const _APIKEY = 'b714ec74bbab5650795063cb0fdf5fbe';
 
 function prepRouteParams (queryStringData) {
-  return Object.keys(queryStringData)
-    .map(function (key) {
-      return key + '=' + encodeURIComponent(queryStringData[key]);
-    }).join('&')
+    return Object.keys(queryStringData).map(
+      (key) => key+'='+encodeURIComponent(queryStringData[key])
+    ).join('&');
 }
 
 function prepUrl (type, queryStringData) {
@@ -22,22 +21,23 @@ function getQueryStringData (city) {
   }
 }
 
-export function getCurrentWeather (city) {
+export async function getCurrentWeather (city) {
   const queryStringData = getQueryStringData(city);
   const url = prepUrl('weather', queryStringData)
-
-  return axios.get(url)
-    .then(function (currentWeatherData) {
-      return currentWeatherData.data
-    })
+  try {
+    let currentWeatherData = await axios.get(url)
+    return currentWeatherData.data;
+  } catch (err) {
+    console.warn('Error in api:getCurrentWeather: ', err);
+  }
 }
 
-export function getForcast (city) {
-  const queryStringData = getQueryStringData(city);
-  const url = prepUrl('forecast/daily', queryStringData)
-
-  return axios.get(url)
-    .then(function (forecastData) {
-      return forecastData.data
-    })
+export async function getForcast (city) {
+  const url = prepUrl('forecast/daily', getQueryStringData(city))
+  try {
+    let forecastData = await axios.get(url);
+    return forecastData.data;
+  } catch (err) {
+    console.warn('Error in api:getForecast: ', err);
+  }
 }

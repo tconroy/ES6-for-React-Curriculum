@@ -19,14 +19,13 @@ class ForecastContainer extends Component {
     this.makeRequest(nextProps.routeParams.city)
   }
 
-  makeRequest (city) {
-    getForcast(city)
-      .then(function (forecastData) {
-        this.setState({
-          isLoading: false,
-          forecastData: forecastData
-        });
-      }.bind(this));
+  async makeRequest (city) {
+    try {
+      let forecastData = await getForcast(city);
+      this.setState({ isLoading: false, forecastData });
+    } catch (err) {
+      console.warn('async error in makeRequest: ', err);
+    }
   }
 
   handleClick (weather) {
