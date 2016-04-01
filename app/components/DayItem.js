@@ -19,13 +19,14 @@ const styles = {
   }
 }
 
-function DayItem (props) {
-  const date = getDate(props.day.dt);
-  const icon = props.day.weather[0].icon;
+function DayItem ({ day, handleClick }) {
+  const date = getDate(day.dt);
+  const { icon } = day.weather[0];
+  const {dayContainer, weather, subheader} = styles;
   return (
-    <div style={styles.dayContainer} onClick={props.handleClick}>
-      <img style={styles.weather} src={'./app/images/weather-icons/' + icon + '.svg'} alt='Weather' />
-      <h2 style={styles.subheader}>{date}</h2>
+    <div style={dayContainer} onClick={handleClick}>
+      <img style={weather} src={'./app/images/weather-icons/' + icon + '.svg'} alt='Weather' />
+      <h2 style={subheader}>{date}</h2>
     </div>
   )
 }

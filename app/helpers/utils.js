@@ -28,8 +28,8 @@ export function convertTemp (kelvin) {
 }
 
 export function getDate (unixTimestmap) {
-  var date = new Date(unixTimestmap * 1000);
-  var day = daysMap[date.getDay()]
-  var month = monthsMap[date.getMonth()] + ' ' + date.getDate();
+  const date = new Date(unixTimestmap * 1000);
+  const day = daysMap[date.getDay()]
+  const month = monthsMap[date.getMonth()] + ' ' + date.getDate();
   return day + ', ' + month;
 }

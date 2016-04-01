@@ -20,14 +20,17 @@ class Main extends Component {
   constructor() {
     super();
   }
+
   render () {
+    let { container, header } = styles;
+    let { children } = this.props;
     return (
-      <div style={styles.container}>
-        <div style={styles.header}>
+      <div style={container}>
+        <div style={header}>
           <h2 style={{margin: 0}}>Clever Title</h2>
           <GetCityContainer direction='row' />
         </div>
-        {this.props.children}
+        {children}
       </div>
     )
   }

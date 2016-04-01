@@ -12,16 +12,20 @@ const styles = {
   }
 }
 
-function Detail (props) {
+function Detail ({weather, city}) {
+  const { temp, humidity } = weather;
+  const { description } = weather.weather[0];
+  const { container, descriptionContainer } = styles;
+
   return (
-    <div style={styles.container}>
-      <DayItem day={props.weather} />
-      <div style={styles.descriptionContainer}>
-        <p>{props.city}</p>
-        <p>{props.weather.weather[0].description}</p>
-        <p>min temp: {convertTemp(props.weather.temp.min)} degrees</p>
-        <p>max temp: {convertTemp(props.weather.temp.max)} degrees</p>
-        <p>humidity: {props.weather.humidity}</p>
+    <div style={container}>
+      <DayItem day={weather} />
+      <div style={descriptionContainer}>
+        <p>{city}</p>
+        <p>{description}</p>
+        <p>min temp: {convertTemp(temp.min)} degrees</p>
+        <p>max temp: {convertTemp(temp.max)} degrees</p>
+        <p>humidity: {humidity}</p>
       </div>
     </div>
   )

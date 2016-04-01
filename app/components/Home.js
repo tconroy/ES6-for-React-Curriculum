@@ -20,9 +20,10 @@ const styles = {
 }
 
 function Home (props) {
+  const { container, header } = styles;
   return (
-    <div style={styles.container}>
-      <h1 style={styles.header}>Enter a City and State</h1>
+    <div style={container}>
+      <h1 style={header}>Enter a City and State</h1>
       <GetCityContainer />
     </div>
   )

@@ -11,22 +11,26 @@ class GetCityContainer extends Component {
 
   handleSubmitCity (e) {
     e.preventDefault()
-    this.context.router.push('/forecast/' + this.state.city)
+    let { city } = this.state;
+    this.context.router.push('/forecast/' + city)
   }
 
   handleUpdateCity (e) {
+    let { value } = e.target;
     this.setState({
-      city: e.target.value
+      city: value
     })
   }
 
   render () {
+    let { direction } = this.props;
+    let { city } = this.state;
     return (
       <GetCity
-        direction={this.props.direction}
+        direction={direction}
         onSubmitCity={(e) => this.handleSubmitCity(e)}
         onUpdateCity={(e) => this.handleUpdateCity(e)}
-        city={this.state.city} />
+        city={city} />
     )
   }
 };

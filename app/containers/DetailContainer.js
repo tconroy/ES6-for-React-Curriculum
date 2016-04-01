@@ -2,15 +2,14 @@ import React, { Component } from 'react'
 import Detail from '../components/Detail'
 
 class DetailContainer extends Component {
-  constructor() {
-  	super();
+  constructor(props) {
+  	super(props);
   }
+
   render() {
-    return (
-      <Detail
-        weather={this.props.location.state.weather}
-        city={this.props.routeParams.city} />
-    );
+    let { weather } = this.props.location.state;
+    let { city } = this.props.routeParams;
+    return <Detail weather={weather} city={city} />
   }
 }
 
