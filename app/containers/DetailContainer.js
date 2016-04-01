@@ -5,7 +5,6 @@ class DetailContainer extends Component {
   constructor() {
   	super();
   }
-
   render() {
     return (
       <Detail

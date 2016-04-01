@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import GetCityContainer from './GetCityContainer';
 
 const styles = {
@@ -16,8 +16,11 @@ const styles = {
   }
 }
 
-var Main = React.createClass({
-  render: function () {
+class Main extends Component {
+  constructor() {
+    super();
+  }
+  render () {
     return (
       <div style={styles.container}>
         <div style={styles.header}>
@@ -28,6 +31,6 @@ var Main = React.createClass({
       </div>
     )
   }
-})
+}
 
 export default Main;
